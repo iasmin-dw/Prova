@@ -1,0 +1,13 @@
+function animar(){
+  $("#caixa").stop(true, true) // limpa animações pendentes
+             .animate({left: '250px', opacity:0.6}, 1000)
+             .animate({top: '50px', opacity:1}, 800)
+             .animate({left: '0px', top:'0px'}, 600, function(){
+               // aparece coraçãozinho no fim da animação
+               let heart = $("<div>💖</div>").css({
+                 position:"absolute", top:"-20px", left:"20px", color:"#ff1493"
+               });
+               $("#caixa").append(heart);
+               setTimeout(()=>heart.remove(), 1000);
+             });
+}
