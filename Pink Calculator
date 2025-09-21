@@ -1,0 +1,13 @@
+function calc(op) {
+  let n1 = Number(document.getElementById("num1").value);
+  let n2 = Number(document.getElementById("num2").value);
+  if (isNaN(n1) || isNaN(n2)) {
+    document.getElementById("resultado").innerText = "Digite dois números válidos 💔";
+    return;
+  }
+  let res = 0;
+  if(op === "+") res = n1 + n2;
+  if(op === "-") res = n1 - n2;
+  if(op === "*") res = n1 * n2;
+  document.getElementById("resultado").innerText = "Resultado = " + res + " 💕";
+}
