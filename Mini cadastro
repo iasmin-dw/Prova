@@ -1,0 +1,5 @@
+function cadastrado(){
+  let nome = document.querySelector("form input[placeholder='Miink']").value;
+  document.getElementById("msg").innerText = 
+    `Cadastro de ${Miink} feito com sucesso 💖🎀`;
+}
