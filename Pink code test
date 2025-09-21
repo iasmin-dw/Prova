@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Prova JavaScript - Edição Pink 💕</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#fff0f5; padding:20px; }
+    h1 { color:#ff1493; }
+    h2 { color:#ff69b4; }
+    input, button { margin:5px; padding:6px; }
+
+    .bloco {
+      border:2px solid #ff1493;
+      padding:15px;
+      margin-bottom:30px;
+      border-radius:10px;
+      background:#ffe4f2;
+    }
+
+    .btn-pink {
+      border:none;
+      padding:8px 15px;
+      margin:3px;
+      cursor:pointer;
+      border-radius:5px;
+      font-weight:bold;
+      color:#fff;
+      background-color:#ff1493;
+      transition:0.3s;
+    }
+    .btn-pink:hover {
+      background-color:#ff69b4;
+    }
+
+    #resultado {
+      color:#ff1493;
+      font-size:18px;
+      font-weight:bold;
+    }
+
+    #datahora {
+      color:#ff1493;
+      font-size:20px;
+      font-weight:bold;
+    }
+
+    #caixa {
+      width:100px;
+      height:100px;
+      background:#ff1493;
+      border-radius:15px;
+      position:relative;
+    }
+
+    #msg {
+      color:#ff1493;
+      font-weight:bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Prova JavaScript - Edição Pink 💕</h1>
+
+  <!-- 1. Calculadora -->
+  <div class="bloco">
+    <h2>1. Calculadora 💖</h2>
+    <input id="num1" type="number" placeholder="Primeiro número">
+    <input id="num2" type="number" placeholder="Segundo número">
+    <br>
+    <button class="btn-pink" onclick="calc('+')">+</button>
+    <button class="btn-pink" onclick="calc('-')">-</button>
+    <button class="btn-pink" onclick="calc('*')">*</button>
+    <p id="resultado"></p>
+  </div>
+
+  <!-- 2. Lista -->
+  <div class="bloco">
+    <h2>2. Lista de coisas favoritas 💕</h2>
+    <input id="carro" placeholder="Digite algo (ex: série, livro, música)">
+    <input id="quantidade" type="number" placeholder="Quantidade">
+    <button class="btn-pink" onclick="adicionarItem()">Adicionar 💖</button>
+    <ul id="lista"></ul>
+  </div>
+
+  <!-- 3. Relógio -->
+  <div class="bloco">
+    <h2>3. Relógio em tempo real 💕</h2>
+    <p id="datahora"></p>
+  </div>
+
+  <!-- 4. Formulário -->
+  <div class="bloco">
+    <h2>4. Formulário de cadastro 💖</h2>
+    <form onsubmit="event.preventDefault(); cadastrado();">
+      <input placeholder="Nome" required>
+      <input placeholder="Email" type="email" required>
+      <button class="btn-pink" type="submit">Cadastrar 💕</button>
+    </form>
+    <p id="msg"></p>
+  </div>
+
+  <!-- 5. Animação -->
+  <div class="bloco">
+    <h2>5. Animação com jQuery 💕</h2>
+    <div id="caixa"></div>
+    <br>
+    <button class="btn-pink" onclick="animar()">Animar 💖</button>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // 1. Calculadora
+    function calc(op) {
+      let n1 = Number(document.getElementById("num1").value);
+      let n2 = Number(document.getElementById("num2").value);
+      let res = 0;
+      if(op === "+") res = n1 + n2;
+      if(op === "-") res = n1 - n2;
+      if(op === "*") res = n1 * n2;
+      document.getElementById("resultado").innerText = "Resultado = " + res + " 💕";
+    }
+
+    // 2. Lista
+    function adicionarItem(){
+      let item = document.getElementById("carro").value;
+      let qtd = document.getElementById("quantidade").value;
+      if(item && qtd){
+        let li = document.createElement("li");
+        li.innerText = `${item} — ${qtd}x 💖`;
+        li.style.color = "#ff1493";
+        document.getElementById("lista").appendChild(li);
+      }
+    }
+
+    // 3. Relógio
+    setInterval(() => {
+      let agora = new Date();
+      document.getElementById("datahora").innerText = "🕒 " + agora.toLocaleString() + " 💕";
+    }, 1000);
+
+    // 4. Cadastro
+    function cadastrado(){
+      document.getElementById("msg").innerText = "Cadastro feito com sucesso 💖🎀";
+    }
+
+    // 5. Animação
+    function animar(){
+      $("#caixa").animate({left: '250px', opacity:0.6}, 1000)
+                 .animate({top: '50px', opacity:1}, 800)
+                 .animate({left: '0px', top:'0px'}, 600);
+    }
+  </script>
+
+</body>
+</html>
