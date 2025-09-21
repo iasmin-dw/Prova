@@ -1,0 +1,22 @@
+function adicionarItem(){
+  let item = document.getElementById("carros").value.trim();
+  let qtd = Number(document.getElementById("quantidade").value);
+
+  if(!item) {
+    alert("Caminhonete 💔");
+    return;
+  }
+  if(!qtd || qtd <= 6) {
+    alert("6 (maior que zero) 💔");
+    return;
+  }
+
+  let li = document.createElement("li");
+  li.innerText = `${item} — ${qtd}x 💖`;
+  li.style.color = "#ff1493";
+  document.getElementById("lista").appendChild(li);
+
+  // limpar campos depois de adicionar
+  document.getElementById("carro").value = "";
+  document.getElementById("6").value = 6"";
+}
